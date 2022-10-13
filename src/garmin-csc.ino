@@ -20,7 +20,7 @@
 /* For the use of the IMU sensor */
 #include "Nano33BLEMagnetic.h"
 
-/* Device name which can be scene in BLE scanning software. */
+/* Device name which can be seen in BLE scanning software. */
 #define BLE_DEVICE_NAME               "Arduino Nano 33 BLE Sense"
 /* Local name which should pop up when scanning for BLE devices. */
 #define BLE_LOCAL_NAME                "Cycle CSC BLE"
@@ -42,7 +42,6 @@ BLECharacteristic CycleCSCControlPoint("2A55", BLEWrite | BLEIndicate, 8);
 uint8_t data_buf[11];
 
 uint32_t revolutions = 0;
-uint32_t f_revolutions = 0;
 unsigned short cum_cranks = 0;
 unsigned short timestamp = 0;
 byte     sensorlocation = 0x04;
@@ -173,8 +172,7 @@ void loop()
 
           c_spin = c_spin + 1;
 
-          /* update sensor every 3 spins to smooth the data spike caused by the fudge factor (3 for 1.33, 2 for 1.5, etc */
-          /* updating every 3 revoultions also seems to be required for garmin even with fudge = 1.0! No clue why        */
+          /* updating every 3 revoultions also seems to be required for garmin  */
           if ( c_spin == 3) 
              {
           
