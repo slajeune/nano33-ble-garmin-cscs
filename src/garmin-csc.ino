@@ -60,8 +60,8 @@ bool n_spin = false;
 /* Might need to adjust for your bike, this is required for the FB150 */
 float fudge = 2;
 
-/* Update sensor every second */
-double update_interval = 1000;
+/* Update sensor every 2 seconds as it makes the reading smoother with my garmin watch */
+double update_interval = 2000;
 unsigned long cur_millis = 0;
 unsigned long old_millis = 0;
 
